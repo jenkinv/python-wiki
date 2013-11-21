@@ -1,0 +1,49 @@
+$def with(commits, form)
+
+<div class="g-bd1 f-cb">
+    <div class="g-mn1">
+      <div class="g-mn1c">
+          <h1 class="u-tt u-tt-xl">Histories:</h1>
+          <ul class="m-list2 m-list2-rds">
+          $for commit in commits:
+            <li>$commit.message:<a class="f-tdu" href="/$commit.hex">$commit.hex</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="g-sd1">
+        <form action="/" method="post" class="m-form">
+        $:form.render()
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+var _ = document.getElementById;
+var addEvent = function(obj, type, func) {
+  if(obj.addEventListener) {
+    obj.addEventListener(type, func);
+    return true;
+  } else if(obj.attachEvent) {
+    obj.attachEvent('on' + type, func);
+    return true;
+  } else {
+    return false;
+  }
+};
+var content = document.getElementById('content');
+var submit = document.getElementById('update');
+addEvent(content, 'click', function(){
+  content.className = 'u-ipt';
+  submit.className = 'u-btn u-btn-1 f-fr';
+  window.clearTimeout(window.hiddenTimeoutId);
+});
+
+addEvent(content, 'blur', function(){
+  window.hiddenTimeoutId = window.setTimeout(function(){
+    content.className = 'u-ipt js-textarea';
+    submit.className = 'u-btn u-btn-1 f-fr js-submit';
+  }, 200);
+
+});
+</script>
+
+

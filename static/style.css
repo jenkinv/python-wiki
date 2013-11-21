@@ -1,0 +1,89 @@
+.g-hd{height:64px;background:url(http://nec.netease.com/img/bg/hd.png?13010900) repeat-x;}
+.g-bd1{margin:10px;}
+body{background: #efefef;}
+/* 两列左侧自适应布局 */
+.g-bd2{margin:0 0 10px;}
+.g-sd2{position:relative;float:right;width:230px;margin-left:-230px}
+.g-mn2{float:left;width:100%;;}
+.g-mn2c{margin-right:240px;}
+
+/* 两列右侧自适应布局 */
+.g-bd1{margin:10px;}
+.g-sd1{position:relative;float:left;width:700px;margin-right:-700px;}
+.g-mn1{float:right;width:100%;}
+.g-mn1c{margin-left:710px;}
+
+/* 简易表单 */
+.m-form{line-height:29px;color:#555;}
+.m-form legend{font-size:14px;font-weight:bold;}
+.m-form .formitm{padding:20px 0 0;line-height:30px;}
+.m-form .formitm-1{padding-left:100px;}
+.m-form .lab, .m-form label{float:left;width:90px;margin-right:-90px;text-align:right;font-weight:bold;}
+.m-form .ipt{margin-left:100px;}
+.m-form .ipt *{vertical-align:middle;}
+.m-form .ipt a,.m-form .ipt a:hover{text-decoration:none;color:#3891eb;}
+.m-form .ipt img{height:32px;margin:0 15px 0 5px;}
+.m-form .ipt .domain{margin:0 0 0 5px;font-weight:bold;color:#777;}
+.m-form .ipt p{height:22px;line-height:22px;color:#999;}
+.m-form .tip{padding-top:10px;}
+.m-form .tip input{margin:0 5px 3px 0;}
+
+.m-form textarea{margin-left:100px;padding:5px;width:500px;height:400px;}
+.m-form .js-textarea{border:none;background: #efefef;}
+.m-form .js-submit{display:none;}
+/* 通用自定义按钮-默认蓝色 */
+.u-btn{display:inline-block;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;padding:0 12px;height:28px;line-height:28px;border:1px solid #2d88bf;border-radius:5px;font-size:12px;letter-spacing:1px;text-align:center;vertical-align:middle;cursor:pointer;word-wrap:normal;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);text-shadow:0 -1px rgba(0,0,0,0.2);background:-webkit-gradient(linear,0% 0%,0% 100%,from(#6dbde4),to(#399dd8));background:-webkit-linear-gradient(#6dbde4,#399dd8);background:-moz-linear-gradient(#6dbde4,#399dd8);background:-ms-linear-gradient(#6dbde4,#399dd8);background:linear-gradient(#6dbde4,#399dd8);}
+.u-btn,.u-btn:hover{color:#fff;text-decoration:none;}
+.u-btn:hover,.u-btn:focus{background:#399dd8;}
+.u-btn:active{box-shadow:inset 0 1px 4px rgba(0,0,0,0.2);}
+.u-btn::-moz-focus-inner{padding:0;margin:0;border:0;}
+.u-btn .btnsel{display:inline-block;vertical-align:middle;border-style:solid;border-width:4px 4px 0;border-color:rgba(255,255,255,0.8) transparent transparent;}
+.u-btn:hover .btnsel,.u-btn:focus .btnsel{border-top-color:rgba(255,255,255,1);}
+/* 较大 */
+.u-btn-lg{padding:0 15px;height:36px;line-height:36px;font-size:18px;}
+.u-btn-lg .btnsel{border-width:5px 5px 0;}
+/* 较小 */
+.u-btn-sm{padding:0 10px;height:22px;line-height:22px;}
+/* 红色 */
+.u-btn-c1{border-color:#9f161b;background:-webkit-gradient(linear,0% 0%,0% 100%,from(#ee232a),to(#cc1c23));background:-webkit-linear-gradient(#ee232a,#cc1c23);background:-moz-linear-gradient(#ee232a,#cc1c23);background:-ms-linear-gradient(#ee232a,#cc1c23);background:linear-gradient(#ee232a,#cc1c23);}
+.u-btn-c1:hover,.u-btn-c1:focus{background:#cc1c23;}
+/* 黄色 */
+.u-btn-c2{border-color:#e1962d;background:-webkit-gradient(linear,0% 0%,0% 100%,from(#fbb149),to(#f8960a));background:-webkit-linear-gradient(#fbb149,#f8960a);background:-moz-linear-gradient(#fbb149,#f8960a);background:-ms-linear-gradient(#fbb149,#f8960a);background:linear-gradient(#fbb149,#f8960a);}
+.u-btn-c2:hover,.u-btn-c2:focus{background:#f8960a;}
+/* 绿色 */
+.u-btn-c3{border-color:#52a552;background:-webkit-gradient(linear,0% 0%,0% 100%,from(#68c668),to(#50b150));background:-webkit-linear-gradient(#68c668,#50b150);background:-moz-linear-gradient(#68c668,#50b150);background:-ms-linear-gradient(#68c668,#50b150);background:linear-gradient(#68c668,#50b150);}
+.u-btn-c3:hover,.u-btn-c3:focus{background:#50b150;}
+/* 灰色 */
+.u-btn-c4{border-color:#d0d0d0;text-shadow:0 1px rgba(255,255,255,0.8);background:-webkit-gradient(linear,0% 0%,0% 100%,from(#fefefe),to(#e7e7e7));background:-webkit-linear-gradient(#fefefe,#e7e7e7);background:-moz-linear-gradient(#fefefe,#e7e7e7);background:-ms-linear-gradient(#fefefe,#e7e7e7);background:linear-gradient(#fefefe,#e7e7e7);}
+.u-btn-c4,.u-btn-c4:hover{color:#333;}
+.u-btn-c4:hover,.u-btn-c4:focus{background:#e7e7e7;}
+.u-btn-c4 .btnsel{border-top-color:rgba(0,0,0,0.6);}
+.u-btn-c4:hover .btnsel,.u-btn-c4:focus .btnsel{border-top-color:rgba(0,0,0,1);}
+
+/* 文本输入框 */
+.u-ipt{width:180px;padding:5px;height:17px;border:1px solid #D9D9D9;border-top-color:#c0c0c0;line-height:17px;font-size:14px;color:#777;background:#fff;}
+/* 文本输入框-窄 */
+.u-ipt-1{width:90px;}
+/* 文本输入框-出错 */
+.u-ipt-err{border-color:#c00 #e00 #e00;}
+
+/* 带点文字链接列表-默认方点 */
+.m-list2{line-height:1.5;}
+.m-list2 li{padding-left:10px;margin-top:5px;}
+.m-list2 li:first-child{margin-top:0;}
+.m-list2 li:before{display:inline-block;margin:0 6px 2px -10px;border:2px solid;vertical-align:middle;content:'';}
+/* 圆点 */
+.m-list2-rds li:before{border-radius:50%;}
+/* 固定文字较大 */
+.m-list2-lg{font-size:14px;}
+
+/* 标题文本-默认大小继承 */
+.u-tt{font-family:'microsoft yahei',sans-serif;}
+/* 较小 */
+.u-tt-sm{font-size:12px;}
+/* 中等 */
+.u-tt-md{font-size:14px;}
+/* 较大 */
+.u-tt-lg{font-size:16px;}
+/* 很大 */
+.u-tt-xl{font-size:18px;}
