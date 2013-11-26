@@ -1,4 +1,4 @@
-$def with(commits, form)
+$def with(commits, form, file_name, all_file_names)
 
 <div class="g-bd1 f-cb">
     <div class="g-mn1">
@@ -6,12 +6,14 @@ $def with(commits, form)
           <h1 class="u-tt u-tt-xl">Histories:</h1>
           <ul class="m-list2 m-list2-rds">
           $for commit in commits:
-            <li>$commit.message:<a class="f-tdu" href="/$commit.hex">$commit.hex</a></li>
+            <li>$commit.message:<a class="f-tdu" href="/$file_name/$commit.hex">$commit.hex</a></li>
+          $for file_name_ in all_file_names:
+            <li><a class="f-tud" href="/$file_name_">$file_name_</a></li>
           </ul>
       </div>
     </div>
     <div class="g-sd1">
-        <form action="/" method="post" class="m-form">
+        <form action="/$file_name" method="post" class="m-form">
         $:form.render()
         </form>
     </div>
@@ -37,7 +39,7 @@ addEvent(content, 'click', function(){
   window.clearTimeout(window.hiddenTimeoutId);
 });
 
-addEvent(content, 'blur', function(){
+addEvent(content, 'zz', function(){
   window.hiddenTimeoutId = window.setTimeout(function(){
     content.className = 'u-ipt js-textarea';
     submit.className = 'u-btn u-btn-1 f-fr js-submit';

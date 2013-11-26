@@ -38,4 +38,11 @@ class Git:
       commits.append(commit)
     return commits
 
+  def git_file_list(self):
+    commit = self.repo.revparse_single('HEAD')
+    tree = commit.tree
+    file_names = []
+    for tree_entry in tree:
+      file_names.append(tree_entry.name)
+    return file_names
 git = Git()
