@@ -13,6 +13,13 @@ body{background: #efefef;}
 .g-mn1{float:right;width:100%;}
 .g-mn1c{margin-left:710px;}
 
+/* 三列右侧自适应布局 */
+.g-bd3{margin:10px;}
+.g-sd31,.g-sd32{position:relative;float:left;width:230px;}
+.g-sd32{width:390px;margin-left:10px;}
+.g-mn3{float:right;width:100%;margin-left:-630px;}
+.g-mn3c{margin-left:640px;min-height: 880px;border-left:4px solid #4eb3b9;}
+
 /* 简易表单 */
 .m-form{line-height:29px;color:#555;}
 .m-form legend{font-size:14px;font-weight:bold;}
@@ -28,7 +35,8 @@ body{background: #efefef;}
 .m-form .tip{padding-top:10px;}
 .m-form .tip input{margin:0 5px 3px 0;}
 
-.m-form textarea{margin-left:100px;padding:5px;width:500px;height:400px;}
+.m-form table{width:90%;margin-top: 20px;}
+.m-form textarea{padding:5px;width:100%;height:400px;}
 .m-form .js-textarea{border:none;background: #efefef;}
 .m-form .js-submit{display:none;}
 /* 通用自定义按钮-默认蓝色 */

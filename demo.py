@@ -4,6 +4,7 @@ import pygit2
 import time
 from git import git
 from config import *
+from datetime import datetime
 
 ### URLS
 urls = (
@@ -12,7 +13,11 @@ urls = (
 )
 
 ### Templates
-render = web.template.render('templates', base='base')
+t_globals = dict(
+  datestr=web.datestr,
+  datetime=datetime,
+)
+render = web.template.render('templates', base='base', globals=t_globals)
 
 class IndexPage:
   form = web.form.Form(
