@@ -7,7 +7,10 @@ $def with(commits, form, file_name, all_file_names)
       <hr/>
       <ul class="m-list2 m-list2-rds">
       $for file_name_ in all_file_names:
-        <li><a class="f-tud" href="/$file_name_">$file_name_</a></li>
+        <li><a class="f-tud" href="/$file_name_" 
+          $if file_name_ == file_name:
+            style=" font-weight:bold;"
+          >$file_name_</a></li>
       </ul>
     </div>
     <div class="g-sd32">
