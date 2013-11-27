@@ -3,7 +3,11 @@ import time
 from config import *
 
 class Git:
-  repo = pygit2.Repository(base_path)
+  try:
+    repo = pygit2.Repository(base_path)
+  except Exception,data:
+    print 'First Time, Init Repository NOW'
+    repo = pygit2.init_repository(base_path, bare=True)
   def git_do_commit_with_workdir_modify(self, file_name, message):
     index = self.repo.index
     index.add(file_name)
