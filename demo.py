@@ -33,10 +33,11 @@ class IndexPage:
     if not form.validates():
       return self.GET()
     content = form.d.content;
-    file_object = codecs.open(base_path + file_name, 'w','utf-8')
-    file_object.write(content)
-    file_object.close()
-    git.git_do_commit(file_name, 'change content to:' + content)
+    #file_object = codecs.open(base_path + file_name, 'w','utf-8')
+    #file_object.write(content)
+    #file_object.close()
+    #git.git_do_commit_with_workdir_modify(file_name, 'change content to:' + content)
+    git.git_do_commit_with_content(file_name, 'commit content without write workdir', content)
     raise web.seeother('/' + file_name);
 
 class CommitPage:
