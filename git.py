@@ -3,11 +3,18 @@ import time
 from config import *
 
 class Git:
-  try:
-    repo = pygit2.Repository(base_path)
-  except Exception,data:
-    print 'First Time, Init Repository NOW'
-    repo = pygit2.init_repository(base_path, bare=True)
+  repo = None
+  ###Initializing
+  def git_init(self):
+    try:
+      self.repo = pygit2.Repository(base_path)
+    except Exception,data:
+      print 'First Time, Init Repository NOW'
+      self.repo = pygit2.init_repository(base_path, bare=True)
+    if self.repo.is_empty:  
+      self.git_do_first_commit()
+
+  ###Commiting
   def git_do_commit_with_workdir_modify(self, file_name, message):
     index = self.repo.index
     index.add(file_name)
@@ -17,18 +24,24 @@ class Git:
 
   def git_do_commit_with_tree_oid(self, tree_oid, message):
     author = pygit2.Signature('zjw', 'jenkinv@163.com', int(time.time()), 480);
-    self.repo.create_commit('HEAD', author, author, message, tree_oid, [self.repo.head.target]);
+    self.repo.create_commit('HEAD', author, author, message, tree_oid, [] if self.repo.is_empty else [self.repo.head.target])
 
   def git_do_commit_with_content(self, file_name, message, content):
     blob_oid = self.repo.create_blob(content)
-    head_commit_tree = self.repo.revparse_single('HEAD').tree;
-    tree_builder = self.repo.TreeBuilder(head_commit_tree)
+    try:
+      head_commit_tree = self.repo[self.repo.head.target].tree
+      tree_builder = self.repo.TreeBuilder(head_commit_tree)
+    except:#first commit, head_commit_tree does not exist
+      tree_builder = self.repo.TreeBuilder()
     tree_builder.insert(file_name, blob_oid, pygit2.GIT_FILEMODE_BLOB)
     tree_oid = tree_builder.write()
     self.git_do_commit_with_tree_oid(tree_oid, message)
 
+  def git_do_first_commit(self):
+    self.git_do_commit_with_content('README', 'Initialize Commit','Initialize Commit')
+  ###GET BLOB DATA
   def git_blob_data_from_head_commit(self, file_name):
-    commit = self.repo.revparse_single('HEAD');
+    commit = self.repo[self.repo.head.target];
     return self.git_blob_data_from_commit(commit, file_name)
 
   def git_blob_data_from_comimit_oid(self, commit_oid, file_name):
@@ -67,3 +80,4 @@ class Git:
       file_names.append(tree_entry.name)
     return file_names
 git = Git()
+git.git_init()

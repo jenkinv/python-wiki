@@ -4,7 +4,7 @@ import pygit2
 import time
 from git import git
 from config import *
-from datetime import datetime
+from datetime import datetime,tzinfo,timedelta
 
 ### URLS
 urls = (
@@ -12,12 +12,22 @@ urls = (
   '/([^/]+?)/(.+)', 'CommitPage'
 )
 
+class LocalTimezone(tzinfo):
+  def utcoffset(self, dt):
+    return timedelta(hours=8)
+  def dst(self, dt):
+    return timedelta(0)
+  def tzname(self, dt):
+    return '+08:00'
+
 ### Templates
 t_globals = dict(
   datestr=web.datestr,
   datetime=datetime,
+  LocalTimezone=LocalTimezone,
 )
 render = web.template.render('templates', base='base', globals=t_globals)
+
 
 class IndexPage:
   form = web.form.Form(

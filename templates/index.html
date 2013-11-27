@@ -15,7 +15,7 @@ $def with(commits, form, file_name, all_file_names)
       <hr/>
       <ul class="m-list2 m-list2-rds">
       $for commit in commits:
-        <li><a title="$commit.message" class="f-tdu" href="/$file_name/$commit.hex">$datestr(datetime.fromtimestamp(commit.commit_time)) BY $commit.author.name </a></li>
+        <li><a title="$commit.message" class="f-tdu" href="/$file_name/$commit.hex">$datetime.fromtimestamp(commit.commit_time, LocalTimezone()).replace(tzinfo=None) BY $commit.author.name </a></li>
       </ul>
     </div>
     <div class="g-mn3">
