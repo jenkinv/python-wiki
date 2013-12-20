@@ -2,6 +2,7 @@ import web
 import codecs
 import pygit2
 import time
+import markdown
 from git import git
 from config import *
 from datetime import datetime,tzinfo,timedelta
@@ -52,12 +53,17 @@ class IndexPage:
     #file_object.write(content)
     #file_object.close()
     #git.git_do_commit_with_workdir_modify(file_name, 'change content to:' + content)
+    utf8_codecs = codecs.lookup('ascii');
+    content = content.encode('utf-8')
     git.git_do_commit_with_content(file_name, 'commit content without write workdir', content)
     raise web.seeother('/' + file_name);
 
 class CommitPage:
   def GET(self, file_name, commit_oid):
-    return git.git_blob_data_from_comimit_oid(commit_oid, file_name)
+    data = git.git_blob_data_from_comimit_oid(commit_oid, file_name)
+    html_data = markdown.markdown(data.decode('utf-8'))
+    render2 = web.template.render('templates', base='single_base', globals=t_globals)
+    return render2.single_page(data, html_data)
 
 app = web.application(urls, globals())
 
